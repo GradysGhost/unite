@@ -1,2 +1,2 @@
-# unite
+# Unite !
 An extensible data aggregation API

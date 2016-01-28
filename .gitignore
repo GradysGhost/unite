@@ -1,0 +1,6 @@
+# vi(m) temp files
+*.swp
+
+# Build stuff
+unite.egg-info
+
