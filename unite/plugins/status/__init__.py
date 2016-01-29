@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import logging as log
@@ -33,4 +33,7 @@ def __event_request_received__(request):
 def __event_request_processed__(request, uhr):
     uhr.body = json.dumps(uhr.body)
     log.info('Processed request: %s\nResponse: %s' % (request, uhr))
+
+def __event_quit__(signum, stack):
+    log.info('Shutting down plugin: status')
 
