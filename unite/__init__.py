@@ -20,15 +20,16 @@ class Unite:
 
         # Load plugins
         for plugin in CONFIG['plugins']:
-            log.info('Importing plugin: %s' % plugin)
+            log.info('Initializing plugin: %s' % plugin)
             importlib.import_module('unite.plugins.%s' % plugin)
-            log.info('Import finished: %s' % plugin)
+            log.info('Done initializing: %s' % plugin)
         
-        # Initialize celery
+        # Someday we'll initialize celery here
         
         # Trigger plugin celery init listeners
 
     def __config_signals__(self):
+        signal.signal(signal.SIGHUP, self.__quit__)
         signal.signal(signal.SIGTERM, self.__quit__)
         signal.signal(signal.SIGINT, self.__quit__)
 
@@ -45,6 +46,5 @@ class Unite:
     
 app = flask.Flask(__name__)
 app.config['UNITE'] = CONFIG
-app.config['UNITE']['version'] = '0.0.1'
-
+app.config['UNITE']['VERSION'] = '0.0.1'
 
