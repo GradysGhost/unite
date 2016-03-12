@@ -1,6 +1,9 @@
 # vi(m) temp files
 *.swp
 
+# Compiled Python
+*.pyc
+
 # Build stuff
 unite.egg-info
 

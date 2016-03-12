@@ -9,7 +9,8 @@ setup(name='unite',
       license          = 'LICENSE',
       long_description = open('README.md').read(),
       install_requires = [
-        'flask'
+        'flask',
+        'pyyaml'
       ],
       packages         = [ 'unite' ]
 )
