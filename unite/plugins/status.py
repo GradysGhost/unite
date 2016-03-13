@@ -24,6 +24,11 @@ def handle_get_status():
     maintenance = app.config['UNITE']['maintenance'] \
         if 'maintenance' in app.config['UNITE'] else False
     
+    if maintenance:
+        log.debug('Maintenance mode')
+    else:
+        log.debug('Online')
+
     return UHR(body={'status' : 'maintenance' if maintenance else 'online'})
 
 
